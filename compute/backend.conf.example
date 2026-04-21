@@ -1,0 +1,9 @@
+# backend.hcl.example
+# Copy this file to backend.hcl and fill in your values
+# Never commit backend.hcl to version control
+
+bucket       = "your-terraform-state-bucket"
+key          = "your-project/your-layer/terraform.tfstate"
+region       = "your-aws-region"
+use_lockfile = true
+encrypt      = true
