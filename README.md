@@ -177,11 +177,23 @@ You should see `10.1.0.0/16` learned via BGP in router-1's routing table.
 
 ### Step 4 — Test end-to-end
 
-SSH into private-1 (via router-1 as bastion), then ping private-2:
+SSH into private-1 using router-1 as a jump host:
 
 ```bash
-ping <private-2-ip>
+# Add key to SSH agent
+ssh-add ~/.ssh/<your-key-name>.pem
+
+# Connect to router-1 with agent forwarding
+ssh -A ec2-user@<router-1-public-ip>
+
+# From router-1, hop to private-1
+ssh ec2-user@<private-1-private-ip>
+
+# Ping private-2 from private-1
+ping <private-2-private-ip>
 ```
+
+Note: Agent forwarding is used — the private key never leaves your laptop and is never stored on the router instance.
 
 ### Teardown
 
