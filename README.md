@@ -220,6 +220,6 @@ The BGP/GRE security groups are deliberately locked to the peer router's EIP —
 - Registry modules — used `terraform-aws-modules/vpc/aws` and `terraform-aws-modules/ec2-instance/aws` from the public Terraform registry
 - Local reusable module — built a custom `modules/security-group` module used across both VPCs, with `for_each` on security group rules
 - `cidrhost()` built-in function for programmatic gateway IP calculation
-- `source_dest_check = false` passed through module arguments to override EC2 module defaults
+
 
 
