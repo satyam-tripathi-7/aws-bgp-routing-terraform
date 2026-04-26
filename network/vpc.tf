@@ -4,7 +4,6 @@ module "vpc1" {
 
   name = "vpc1"
   cidr = "10.0.0.0/16"
-  region = var.region
 
   azs             = ["ap-south-1a",]
   private_subnets = ["10.0.1.0/24", ]
@@ -26,7 +25,6 @@ module "vpc2" {
 
   name = "vpc2"
   cidr = "10.1.0.0/16"
-  region = var.region
 
   azs             = ["ap-south-1a"]
   private_subnets = ["10.1.1.0/24"]
