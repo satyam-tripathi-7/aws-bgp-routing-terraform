@@ -7,7 +7,7 @@ module "router-1" {
   key_name      = var.key
   monitoring    = true
   subnet_id     = data.terraform_remote_state.network.outputs.vpc1_public_subnets[0]
-  vpc_security_group_ids = [module.SG1.SG_allow_ssh_and_icmp_from_internet_id, aws_security_group.allow_179_vpc1.id]
+  vpc_security_group_ids = [module.SG1.SG_allow_ssh_and_icmp_from_internet_id, aws_security_group.allow_bgp_gre_vpc1.id]
   source_dest_check = false
   create_security_group = false
   user_data = templatefile("./scripts/router.sh", {
@@ -37,7 +37,7 @@ module "router-2" {
   key_name      = var.key
   monitoring    = true
   subnet_id     = data.terraform_remote_state.network.outputs.vpc2_public_subnets[0]
-  vpc_security_group_ids = [module.SG2.SG_allow_ssh_and_icmp_from_internet_id, aws_security_group.allow_179_vpc2.id]
+  vpc_security_group_ids = [module.SG2.SG_allow_ssh_and_icmp_from_internet_id, aws_security_group.allow_bgp_gre_vpc2.id]
   source_dest_check = false
   create_security_group = false
   user_data = templatefile("./scripts/router.sh", {
